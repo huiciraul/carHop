@@ -7,7 +7,7 @@ import { Icon } from "@rneui/themed";
 import { styles } from "./stacks.styles"; // Importa tus estilos personalizados
 import { AccountsStack } from "./AccountStack";
 import { BuscarViajesStack } from "./BuscarViajesStack";
-import { MensajesStack } from "./MensajesStack";
+import { MensajeriaStack } from "./MensajeriaStack";
 import { PublicarStack } from "./PublicarStack";
 import { ViajesStack } from "./ViajesStack";
 import { screen } from "../utils";
@@ -15,18 +15,18 @@ import { screen } from "../utils";
 const Tab = createBottomTabNavigator();
 
 export function AppNavigation() {
-  return (  
+  return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarStyle: { backgroundColor: "black", borderBlockColor:"black", },
+        tabBarStyle: { backgroundColor: "black", borderBlockColor: "black" },
         headerShown: false,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: styles.tabBarInactiveTintColor,
         tabBarIcon: ({ color, size }) => screenOptions(route, color, size),
       })}
-    //   tabBarOptions={{
-    //     style: {backgroundColor: "black",}
-    //   }}
+      //   tabBarOptions={{
+      //     style: {backgroundColor: "black",}
+      //   }}
     >
       <Tab.Screen
         name={screen.buscarviajes.tab}
@@ -44,9 +44,9 @@ export function AppNavigation() {
         options={{ title: "Viajes" }}
       />
       <Tab.Screen
-        name={screen.mensajes.tab}
-        component={MensajesStack}
-        options={{ title: "Mensajes" }}
+        name={screen.mensajeria.tab}
+        component={MensajeriaStack}
+        options={{ title: "MENSAJES" }}
       />
       <Tab.Screen
         name={screen.account.tab}
@@ -78,11 +78,6 @@ function screenOptions(route, color, size) {
     iconName = "plus";
   }
   return (
-    <Icon
-      type="material-community"
-      name={iconName}
-      color={color}
-      size={size}
-    />
+    <Icon type="material-community" name={iconName} color={color} size={size} />
   );
 }

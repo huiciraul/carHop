@@ -1,38 +1,38 @@
 // En el archivo "../utils"
 const tusViajesStack = {
-    tab: "tusViajesTab",
-    tusViajes:"Tus viajes",
+  tab: "tusViajesTab",
+  tusViajes: "Tus viajes",
 };
 
 const buscarStack = {
-    tab: "buscarviajesTab",
-    buscarviajes: "buscar viajes",
-    viaje: "Viaje",
+  tab: "buscarviajesTab",
+  buscarviajes: "buscar viajes",
+  viaje: "Viaje",
 };
 
-const mensajesStack = {
-    tab: "mensajesTab",
-    mensajes:"Mensajes",
+const mensajeriaStack = {
+  tab: "MensajeriaTab",
+  mensajeria: "Mensajeria",
+  chat: "Chat",
 };
 
 const accountsStack = {
-    tab: "accountsTab",
-    account: "Cuenta",
-    InfPersonal: "InformacionPersonal",
-    login: "Login",
-    register: "register",
+  tab: "accountsTab",
+  account: "Cuenta",
+  InfPersonal: "InformacionPersonal",
+  login: "Login",
+  register: "register",
 };
 
 const publicarStack = {
-    tab: "publicarTab",
-    publicar:"Publicar",    
+  tab: "publicarTab",
+  publicar: "Publicar",
 };
 
 export const screen = {
-    tusViajes: tusViajesStack,
-    mensajes: mensajesStack,
-    account: accountsStack,
-    publicar: publicarStack,
-    buscarviajes: buscarStack,
-
+  tusViajes: tusViajesStack,
+  mensajeria: mensajeriaStack,
+  account: accountsStack,
+  publicar: publicarStack,
+  buscarviajes: buscarStack,
 };

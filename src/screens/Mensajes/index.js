@@ -1,1 +1,1 @@
-export * from "./Mensajes";
+export * from "./MensajesScreen";
