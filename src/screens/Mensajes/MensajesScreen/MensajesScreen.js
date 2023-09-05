@@ -19,35 +19,35 @@ const Messages_data = [
   {
     id: "1",
     userName: "Raul Huici",
-    userImg: require("../../../../assets/img/carpool.png"),
+    //userImg: require("../../../../assets/img/carpool.png"),
     messageTime: "4 mins ago",
     messageText: "Hey there, I will be at pickup point in 3 minutes.",
   },
   {
     id: "2",
     userName: "Leo Messi",
-    userImg: require("../../../../assets/img/carpool.png"),
+    //userImg: require("../../../../assets/img/carpool.png"),
     messageTime: "2 hours ago",
     messageText: "I will pick you up at 8.30am sharp",
   },
   {
     id: "3",
     userName: "Marcos Galperín",
-    userImg: require("../../../../assets/img/carpool.png"),
+    //userImg: require("../../../../assets/img/carpool.png"),
     messageTime: "1 hours ago",
     messageText: "I will be late by five minutes",
   },
   {
     id: "4",
     userName: "Sol Perez",
-    userImg: require("../../../../assets/img/carpool.png"),
+    //userImg: require("../../../../assets/img/carpool.png"),
     messageTime: "1 day ago",
     messageText: "It was nice sharing ride with you",
   },
   {
     id: "5",
     userName: "Cristina Greiner",
-    userImg: require("../../../../assets/img/carpool.png"),
+    //userImg: require("../../../../assets/img/carpool.png"),
     messageTime: "2 days ago",
     messageText: "Hope to see you again!",
   },
@@ -69,7 +69,7 @@ export function MensajesScreen() {
           >
             <UserInfo>
               <UserImgWrapper>
-                <UserImg source={item.userImg} />
+                {/* <UserImg source={item.userImg} /> */}
               </UserImgWrapper>
               <TextSection>
                 <UserInfoText>

@@ -1,95 +1,61 @@
-import React from "react";
-import { View, Text, Button, StyleSheet, FlatList } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { screen } from "../../../utils";
-import {
-  Container,
-  Card,
-  UserInfo,
-  UserImgWrapper,
-  UserImg,
-  UserInfoText,
-  UserName,
-  PostTime,
-  MessageText,
-  TextSection,
-} from "./MessageStyles";
+import styled from "styled-components";
 
-const Messages_data = [
-  {
-    id: "1",
-    userName: "Raul Huici",
-    userImg: require("../../../../assets/img/carpool.png"),
-    messageTime: "4 mins ago",
-    messageText: "Hey there, I will be at pickup point in 3 minutes.",
-  },
-  {
-    id: "2",
-    userName: "Leo Messi",
-    userImg: require("../../../../assets/img/carpool.png"),
-    messageTime: "2 hours ago",
-    messageText: "I will pick you up at 8.30am sharp",
-  },
-  {
-    id: "3",
-    userName: "Marcos Galperín",
-    userImg: require("../../../../assets/img/carpool.png"),
-    messageTime: "1 hours ago",
-    messageText: "I will be late by five minutes",
-  },
-  {
-    id: "4",
-    userName: "Sol Perez",
-    userImg: require("../../../../assets/img/carpool.png"),
-    messageTime: "1 day ago",
-    messageText: "It was nice sharing ride with you",
-  },
-  {
-    id: "5",
-    userName: "Cristina Greiner",
-    userImg: require("../../../../assets/img/carpool.png"),
-    messageTime: "2 days ago",
-    messageText: "Hope to see you again!",
-  },
-];
-export function MensajesScreen() {
-  const navigation = useNavigation();
-  return (
-    <Container>
-      <FlatList
-        data={Messages_data}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Card
-            onPress={() =>
-              navigation.navigate(screen.mensajeria.chat, {
-                userName: item.userName,
-              })
-            }
-          >
-            <UserInfo>
-              <UserImgWrapper>
-                <UserImg source={item.userImg} />
-              </UserImgWrapper>
-              <TextSection>
-                <UserInfoText>
-                  <UserName>{item.userName}</UserName>
-                  <PostTime>{item.messageTime}</PostTime>
-                </UserInfoText>
-                <MessageText>{item.messageText}</MessageText>
-              </TextSection>
-            </UserInfo>
-          </Card>
-        )}
-      />
-    </Container>
-  );
-}
+export const Container = styled.View`
+  flex: 1;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  background-color: #ffffff;
+`;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export const Card = styled.TouchableOpacity`
+  width: 100%;
+`;
+
+export const UserInfo = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const UserImgWrapper = styled.View`
+  padding-top: 15px;
+  padding-bottom: 15px;
+`;
+
+export const UserImg = styled.Image`
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+`;
+
+export const TextSection = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  padding-left: 0;
+  margin-left: 10px;
+  width: 300px;
+  border-bottom-width: 1px;
+  border-bottom-color: #cccccc;
+`;
+
+export const UserInfoText = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+`;
+
+export const UserName = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const PostTime = styled.Text`
+  font-size: 12px;
+  color: #666;
+`;
+
+export const MessageText = styled.Text`
+  font-size: 14px;
+  color: #333333;
+`;

@@ -71,7 +71,7 @@ function screenOptions(route, color, size) {
   if (route.name === screen.account.tab) {
     iconName = "account-outline";
   }
-  if (route.name === screen.mensajes.tab) {
+  if (route.name === screen.mensajeria.tab) {
     iconName = "chat-outline";
   }
   if (route.name === screen.publicar.tab) {

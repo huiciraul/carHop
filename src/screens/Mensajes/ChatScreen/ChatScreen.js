@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
 } from "react";
 import { View, StyleSheet } from "react-native";
-import { Avatar } from "react-native-elements";
+import { Avatar, Icon } from "@rneui/themed";
 import { db } from "../../../utils/firebase";
 import { getAuth } from "firebase/auth";
 import {
@@ -16,7 +16,6 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
-import { Icon } from "react-native-elements";
 import { Bubble, GiftedChat, Send } from "react-native-gifted-chat";
 
 export function ChatScreen({ navigation }) {
