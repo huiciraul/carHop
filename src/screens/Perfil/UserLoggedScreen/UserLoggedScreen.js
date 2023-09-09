@@ -19,7 +19,7 @@ export function UserLoggedScreen() {
   const navigation = useNavigation();
   const goingToInfPersonal = () => {
       navigation.navigate(screen.account.InfPersonal); //si quiero navegar entre pantallas del mismo stack
-      //navigation.navigate(screen.tusViajes.tab, {screen: screen.tusViajes.tusViajes});//para navegar entre screens de distintos stacks
+      //navigation.navigate(screen.Viajes.tab, {screen: screen.Viajes.Viajes});//para navegar entre screens de distintos stacks
     };
   return (
     <ScrollView style={styles.content}>

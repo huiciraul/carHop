@@ -9,12 +9,13 @@ export function ViajesStack(){
     return(
         <Stack.Navigator
         screenOptions={{
+            headerShown: false,
             headerStyle: styles.headerStyle, // Aplica el estilo del encabezado
             headerTintColor: styles.headerTintColor, // Aplica el color del icono/botón de retroceso
             headerTitleStyle: styles.headerTitleStyle, // Aplica el estilo del título
         }}
         >
-            <Stack.Screen name={screen.tusViajes.tusViajes} component={Viajes} options={{title:"Mis viajes"}}/>
+            <Stack.Screen name={screen.Viajes.Viajes} component={Viajes} options={{title:"Mis viajes"}}/>
         </Stack.Navigator>
     )
 }

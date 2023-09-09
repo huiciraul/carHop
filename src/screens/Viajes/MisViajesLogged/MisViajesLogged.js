@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { View, ScrollView } from 'react-native';
 import {collection, onSnapshot, orderBy, query} from "firebase/firestore";
 import { screen, db } from '../../../utils';
-import { styles } from "./BuscarViajesLogged.styles";
-import { ListViajes } from '../../../components';
+import { styles } from "./MisViajesLogged.styles";
+import { ListViajes } from '../../../components/MisViajes';
 import { LoadingModal } from "../../../components";
 import { SearchBar, ListItem, Avatar, Icon } from '@rneui/base';
 

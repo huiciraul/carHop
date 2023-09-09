@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native'
 import { Text, Rating, Avatar, Icon, Button } from '@rneui/base';
 import { styles } from './Header.styles';
 import { useNavigation } from '@react-navigation/native'; // Importa el hook useNavigation
-import { getAuth } from "firebase/auth"; 
+import { getAuth } from "firebase/auth"; // Importa el módulo getAuth para obtener información del usuario
 import {screen} from "../../../utils/screenName";
 export function Header(props) {
   const { viaje } = props;
@@ -18,7 +18,6 @@ export function Header(props) {
       },
     });
   }
-  
  const solicitarViaje = () =>{console.log("Solicitando viaje")}
   // Obtiene la información del usuario actual
   const { displayName, email } = getAuth().currentUser;

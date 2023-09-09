@@ -7,13 +7,14 @@ import {screen} from "../../../utils/screenName";
 import { LoadingModal } from "../../shared/LoadingModal/Index";
 import { collection, query, startAt, endAt, limit, orderBy, getDocs} from "firebase/firestore";
 import {db} from "../../../utils";
+import { getAuth } from 'firebase/auth';
 import {size} from "lodash";
 
 
 export function ListViajes(props) {
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState(null);
-
+  const { displayName, email } = getAuth().currentUser;
 
   const { viajes } = props;
   const navigation = useNavigation();
@@ -40,29 +41,26 @@ useEffect(() => {
   }
   return (
     <View style={styles.vista}>
-
-
-
       <View>
       <SearchBar
         rightIcon={true}
         containerStyle={{backgroundColor:"black"}}
-        placeholder="Busca tu destino"
+        placeholder="Busca en tus viajes"
         value={searchText}
         onChangeText={(text) => setSearchText(text)}
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.input}
       />
-        {!searchResults && <LoadingModal show text="Buscando destino..." />}
-      </View>
-
-
-      
+        {!searchResults && <LoadingModal show text="Buscando tus viajes" />}
+      </View>      
       <FlatList
         style={styles.list} 
         data={searchText? searchResults : viajes}
         renderItem={(doc) => {
           const viaje = doc.item.data();
+          const esCreadorDeEsteViaje = viaje.Usuario === displayName && viaje.email === email;
+         
+          if(esCreadorDeEsteViaje) {
           return (
             <TouchableOpacity onPress={()=>goToViaje(viaje)}> 
           <View style={styles.infoContainer}>                        
@@ -104,6 +102,7 @@ useEffect(() => {
              </View>
             </TouchableOpacity>            
           )
+          }
         }}
       />
     </View>

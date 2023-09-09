@@ -1,11 +1,23 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { styles } from './Viajes.styles';
+import React, { useState, useEffect } from 'react';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { UserGuestScreen } from '../Perfil/UserGuestScreen/UserGuestScreen';
+import { BuscarViajesLogged } from './MisViajesLogged/MisViajesLogged';
+import { LoadingModal } from '../../components';
+
+
 
 export function Viajes() {
-  return (
-    <View style={styles.container}>
-      <Text>Tus viajes</Text>
-    </View>
-  )
+  const [hasLogged, setHasLogged] = useState(null)
+
+  useEffect(() =>{
+   const auth = getAuth();
+  onAuthStateChanged(auth, (user)=>{
+     setHasLogged(user ? true : false);
+   });
+  }, []);
+
+  if (hasLogged === null) {
+    return <LoadingModal show text="Cargando"/>;
+  }
+return hasLogged ? <BuscarViajesLogged/> : <UserGuestScreen/>
 }

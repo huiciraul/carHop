@@ -12,7 +12,7 @@ import { getAuth } from "firebase/auth";
 import { styles } from './PublicarLogged.styles'; // Asegúrate de importar los estilos
 
 export function PublicarForm() {
-  const [loading, setLoading] = useState(false);
+  const [Loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   const navigation = useNavigation();
   const route = useRoute();

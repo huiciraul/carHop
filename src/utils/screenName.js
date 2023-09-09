@@ -1,7 +1,7 @@
 // En el archivo "../utils"
-const tusViajesStack = {
-    tab: "tusViajesTab",
-    tusViajes:"Tus viajes",
+const ViajesStack = {
+    tab: "ViajesTab",
+    Viajes:"Tus viajes",
 };
 
 const buscarStack = {
@@ -29,7 +29,7 @@ const publicarStack = {
 };
 
 export const screen = {
-    tusViajes: tusViajesStack,
+    Viajes: ViajesStack,
     mensajes: mensajesStack,
     account: accountsStack,
     publicar: publicarStack,

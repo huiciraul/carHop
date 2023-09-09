@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   vista:{//contenedor principal
+    marginTop:1,
     paddingTop: 50,
     backgroundColor:"black",
     // marginBottom: 125,
@@ -146,70 +147,5 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "#43a047",
-  },
-card: {
-  width: 190,
-  height: 254,
-  backgroundColor: "#3405a3",
-  borderRadius: 15,
-  shadowColor: "#100a886b",
-  shadowOffset: {
-    width: 1,
-    height: 5,
-  },
-  shadowRadius: 60,
-  shadowOpacity: 0,
-  // Añade otros estilos necesarios
-},
-cardBorderTop: {
-  width: "60%",
-  height: "3%",
-  backgroundColor: "#6b64f3",
-  marginHorizontal: "auto",
-  borderRadius: "0px 0px 15px 15px",
-  // Añade otros estilos necesarios
-},
-cardSpan: {
-  fontWeight: "600",
-  color: "white",
-  textAlign: "center",
-  display: "block",
-  paddingTop: 10,
-  fontSize: 16,
-  // Añade otros estilos necesarios
-},
-cardJob: {
-  fontWeight: "400",
-  color: "white",
-  display: "block",
-  textAlign: "center",
-  paddingTop: 3,
-  fontSize: 12,
-  // Añade otros estilos necesarios
-},
-cardImg: {
-  width: 70,
-  height: 80,
-  backgroundColor: "#6b64f3",
-  borderRadius: 15,
-  margin: "auto",
-  marginTop: 25,
-  // Añade otros estilos necesarios
-},
-cardButton: {
-  padding: "8px 25px",
-  display: "block",
-  margin: "auto",
-  borderRadius: 8,
-  border: "none",
-  marginTop: 30,
-  backgroundColor: "#6b64f3",
-  color: "white",
-  fontWeight: "600",
-  // Añade otros estilos necesarios
-},
-cardButtonHover: {
-  backgroundColor: "#534bf3",
-  // Añade otros estilos necesarios
-},
+  }
 });

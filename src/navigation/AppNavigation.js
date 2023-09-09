@@ -39,9 +39,9 @@ export function AppNavigation() {
         options={{ title: "Publicar" }}
       />
       <Tab.Screen
-        name={screen.tusViajes.tab}
+        name={screen.Viajes.tab}
         component={ViajesStack}
-        options={{ title: "Viajes" }}
+        options={{ title: "Mis viajes" }}
       />
       <Tab.Screen
         name={screen.mensajes.tab}
@@ -62,7 +62,7 @@ export function AppNavigation() {
 function screenOptions(route, color, size) {
   let iconName;
 
-  if (route.name === screen.tusViajes.tab) {
+  if (route.name === screen.Viajes.tab) {
     iconName = "car-outline";
   }
   if (route.name === screen.buscarviajes.tab) {
