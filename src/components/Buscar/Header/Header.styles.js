@@ -30,7 +30,6 @@ export const styles = StyleSheet.create({
       paddingBottom:50,
     },
     Fecha: {
-      // textAlign: "start",
       fontSize: 30,
       fontWeight:"bold",
       color: "white",

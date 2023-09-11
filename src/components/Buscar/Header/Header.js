@@ -3,22 +3,15 @@ import { View, ScrollView } from 'react-native'
 import { Text, Rating, Avatar, Icon, Button } from '@rneui/base';
 import { styles } from './Header.styles';
 import { useNavigation } from '@react-navigation/native'; // Importa el hook useNavigation
-import { getAuth } from "firebase/auth"; 
-import {screen} from "../../../utils/screenName";
+import { getAuth } from "firebase/auth"; // Importa el módulo getAuth para obtener información del usuario
+
 export function Header(props) {
   const { viaje } = props;
   const navigation = useNavigation(); // Inicializa el hook useNavigation
 
   const editarViaje = () => {
-    navigation.navigate({
-      name: screen.publicar.publicar,
-      params: {
-        // viajeId: 123, // Un número que identifica el viaje que se va a editar
-        // modoEdicion: true, // Un indicador para decir que estamos en modo de edición
-      },
-    });
+    navigation.navigate('Publicar'); // Redirige a la pantalla de edición
   }
-  
  const solicitarViaje = () =>{console.log("Solicitando viaje")}
   // Obtiene la información del usuario actual
   const { displayName, email } = getAuth().currentUser;
