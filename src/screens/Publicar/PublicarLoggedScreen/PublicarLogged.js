@@ -1,71 +1,80 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { InfoForm } from '../../../components/Publicar/PublicarViajes/InfoForm';
-import { Button, Image } from '@rneui/base';
-import { setDoc, doc } from "firebase/firestore";
+import { Button } from '@rneui/base';
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../utils";
 import { useFormik } from 'formik';
 import { initialValues, validationSchema } from './PublicarLogged.data';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAuth } from "firebase/auth";
-import { styles } from './PublicarLogged.styles';
+import { styles } from './PublicarLogged.styles'; // Asegúrate de importar los estilos
 import { v4 as uuid } from 'uuid';
+import { screen } from '../../../utils';
 
 export function PublicarForm() {
   const [loading, setLoading] = useState(false);
-  const [loadingText, setLoadingText] = useState("");
+  // const [loadingText, setLoadingText] = useState("");
   const navigation = useNavigation();
   const route = useRoute();
   const { photoURL, displayName, email } = getAuth().currentUser;
 
-  // Obtén los valores iniciales del formulario
-  const initialValuesWithPlaceholders = initialValues();
-
-  // Cuando estés en modo de edición, establece los valores iniciales del formulario
-  if (route.params?.isEditing) {
-    const viajeActual = route.params.viaje;
-    for (const key in viajeActual) {
-      if (initialValuesWithPlaceholders.hasOwnProperty(key)) {
-        initialValuesWithPlaceholders[key] = viajeActual[key];
-      }
-    }
-  }
-
   const formik = useFormik({
-    initialValues: initialValuesWithPlaceholders,
-    validationSchema: validationSchema,
-    validateOnChange: false,
-    onSubmit: async (formValue) => {
+    initialValues: initialValues(),//viene directo del .data
+    validationSchema: validationSchema(),//lo mismo
+    validateOnChange: false,// se usa para que no este validando en cada cambio de estado del input
+    onSubmit: async (formValue) => {//esta funcion recibe la informacion del handlesubmit al precionar el boton publicar
       try {
+        setLoading(true); // Activar indicador de carga
         const newData = formValue;
         newData.Usuario = displayName;
         newData.email = email;
         newData.photoURL = photoURL;
-        if (route.params?.isEditing) {
-          newData.id = route.params.viaje.id;
+        if (route.params?.id) {
+          newData.id = route.params.id;
           newData.updatedAt = new Date();
           const myDb = doc(db, "viajes", newData.id);
-          await setDoc(myDb, newData, { merge: true });
-        } else {
-          newData.id = newData.id || uuid();
-          newData.createdAt = newData.createdAt || new Date();
-          const myDb = doc(db, "viajes", newData.id);
           await setDoc(myDb, newData);
+          navigation.goBack();
+        } else {
+          newData.id = newData.id || uuid();//se le da un id al viaje
+          newData.createdAt = newData.createdAt || new Date();//se le da una fecha al viaje
+          const myDb = doc(db, "viajes", newData.id);//se le da una ubicacion dentro de firestore
+          await setDoc(myDb, newData);//se guarda el documento
+          navigation.navigate(screen.Viajes.tab,{screen: screen.Viajes.Viajes});
         }
-        navigation.goBack();
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false); // Desactivar indicador de carga después de enviar
       }
     },
   });
 
+  useEffect(() => {
+    if (route.params?.id) {
+      const obtenerViaje = async () => {
+        const viajeDoc = await getDoc(doc(db, "viajes", route.params.id));
+        if (viajeDoc.exists()) {
+          const viajeExistente = viajeDoc.data();
+          formik.setValues(viajeExistente);
+        }
+      };
+      obtenerViaje();
+    }
+  }, [route.params?.id]);
+
   return (
     <ScrollView style={styles.container}>
-      <Image 
-        source={require("../../../../assets/img/autoLogin-removebg-preview.png")} 
-        style={styles.image} 
-      />
       <InfoForm formik={formik} />
+      {/* <Button
+        title="Publicar viaje"
+        type='clear'
+        buttonStyle={styles.publicar}
+        color={"black"}
+        onPress={formik.handleSubmit}
+        loading={loading} // Usar el estado 'loading' para el indicador de carga
+      /> */}
     </ScrollView>
   );
 }
