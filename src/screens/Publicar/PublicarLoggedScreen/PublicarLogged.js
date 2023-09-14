@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { InfoForm } from '../../../components/Publicar/PublicarViajes/InfoForm';
 import { Button } from '@rneui/base';
 import { setDoc, doc, getDoc } from "firebase/firestore";
@@ -10,6 +10,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { getAuth } from "firebase/auth";
 import { styles } from './PublicarLogged.styles'; // Asegúrate de importar los estilos
 import { v4 as uuid } from 'uuid';
+import { Dimensions } from 'react-native';
 import { screen } from '../../../utils';
 
 export function PublicarForm() {
@@ -18,6 +19,8 @@ export function PublicarForm() {
   const navigation = useNavigation();
   const route = useRoute();
   const { photoURL, displayName, email } = getAuth().currentUser;
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
 
   const formik = useFormik({
     initialValues: initialValues(),//viene directo del .data
@@ -65,7 +68,12 @@ export function PublicarForm() {
   }, [route.params?.id]);
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={{
+      // width:windowHeight,
+      // height:windowHeight,
+      flex:1,
+      backgroundColor:"black",
+    }}>
       <InfoForm formik={formik} />
       {/* <Button
         title="Publicar viaje"
@@ -75,6 +83,6 @@ export function PublicarForm() {
         onPress={formik.handleSubmit}
         loading={loading} // Usar el estado 'loading' para el indicador de carga
       /> */}
-    </ScrollView>
+    </View>
   );
 }

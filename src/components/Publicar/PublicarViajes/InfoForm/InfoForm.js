@@ -42,9 +42,8 @@ export function InfoForm(props) {
   };
 
   return (
-    <View style={styles.content}>
       <ScrollView
-        style={{ flex: 1 }}
+        style={ styles.content }
         nestedScrollEnabled={true} // <---- 1.
         keyboardShouldPersistTaps={"handled"}
       >
@@ -190,6 +189,5 @@ export function InfoForm(props) {
         </View>
       )}
       </ScrollView>
-    </View>
   );  
 }

@@ -15,6 +15,6 @@ export const styles = StyleSheet.create({
     container:{
         backgroundColor:"black",
         paddingTop: 40,
-        flex:1,
+        // flex:1,
     }
 });
