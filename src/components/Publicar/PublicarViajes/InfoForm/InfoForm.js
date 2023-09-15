@@ -5,6 +5,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import { Input, Button, Icon } from "@rneui/base";
 import { styles } from "./InfoForm.styles";
