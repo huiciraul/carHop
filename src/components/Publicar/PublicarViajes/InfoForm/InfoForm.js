@@ -227,8 +227,8 @@ export function InfoForm(props) {
           {showTimePicker && (
             <DateTimePicker
               value={selectedTime || new Date()}
-              mode="time"
-              display="default"
+              mode={Platform.OS === "ios" ? "date" : "calendar"} // Modo diferente para iOS y Android
+              display={Platform.OS === "ios" ? "spinner" : "default"} // Configuración de visualización diferente
               onChange={onChangeTime}
             />
           )}
