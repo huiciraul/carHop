@@ -231,6 +231,7 @@ export function InfoForm(props) {
               mode="time"
               display="default"
               onChange={onChangeTime}
+              is24Hour={true}
             />
           )}
           {/* <Input
