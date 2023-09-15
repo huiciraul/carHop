@@ -35,6 +35,27 @@ export const styles = StyleSheet.create({
       color: "white",
       marginBottom: 4,
     },
+    punto: {
+      width: 8, // Tamaño de los círculos
+      height: 8,
+      borderRadius: 4, // Para hacer círculos
+      backgroundColor: 'white', // Color de los círculos
+      marginRight: 5, // Espacio a la derecha de los círculos
+      marginLeft: 2,
+    },
+    linea: {
+      height: 40, // Alto de la línea igual a la altura de los círculos
+      width: 2, // Ancho de la línea
+      backgroundColor: 'white', // Color de la línea
+      marginLeft: 5,
+      marginTop:-15,
+      marginBottom:-15,
+      alignItems: 'center',
+    },
+    PyU:{
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
     Origen: {
       fontSize: 18,
       fontWeight: "bold",

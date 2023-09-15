@@ -45,20 +45,24 @@ export function Header(props) {
 
         <View style={styles.FechaView}>
           <Text style={styles.Fecha}>{viaje.Fecha}</Text>
+          <Text style={styles.Fecha}>{viaje.HorarioDeSalida}</Text>
         </View>
         <View style={styles.header}>
-        <View style={styles.fechaContainer}>
-          <Text style={styles.Horario}>{viaje.HorarioDeSalida}</Text>
-        </View>
-        <View style={styles.OyD}> 
-                    <Text style={styles.Destino}>{viaje.Destino}</Text>
-                    <Text style={styles.Destino}>|</Text>
-                    <Text style={styles.Destino}>|</Text>
+        <View style={styles.OrigenDestinoContainer}>
+                <View style= {styles.PyU}>
+                  <View style={styles.punto}></View>
                     <Text style={styles.Origen}>{viaje.Origen}</Text>
-               </View>
-        </View>
+                </View>
+                      <View style={styles.linea}></View>
+                <View style= {styles.PyU}>
+                  <View style={styles.punto}></View>
+                    <Text style={styles.Destino}>{viaje.Destino}</Text>
+                </View>
+         </View>     
+         </View>
         <View style={styles.import}>
-          <Text style={styles.importText}>IMPORTE DEL VIAJE</Text>
+          <Text style={styles.importText}>Precio por asiento: ${viaje.Precio}</Text>
+          <Text style={styles.importText}>Lugares disponibles: {viaje.Lugares}</Text>
         </View>
     <View >                           
       <View style={styles.userContainer} >
