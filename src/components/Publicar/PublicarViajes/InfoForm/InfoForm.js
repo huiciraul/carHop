@@ -196,8 +196,8 @@ export function InfoForm(props) {
           {showDatePicker && (
             <DateTimePicker
               value={selectedDate || fechaHoy}
-              mode="date"
-              display="default"
+              mode={Platform.OS === "ios" ? "date" : "calendar"} // Modo diferente para iOS y Android
+              display={Platform.OS === "ios" ? "spinner" : "default"} // Configuración de visualización diferente
               minimumDate={fechaHoy}
               onChange={onChangeDate}
             />
@@ -228,7 +228,7 @@ export function InfoForm(props) {
           {showTimePicker && (
             <DateTimePicker
               value={selectedTime || new Date()}
-              mode={Platform.OS === "ios" ? "date" : "calendar"} // Modo diferente para iOS y Android
+              mode={Platform.OS === "ios" ? "time" : "clock"} // Modo diferente para iOS y Android
               display={Platform.OS === "ios" ? "spinner" : "default"} // Configuración de visualización diferente
               onChange={onChangeTime}
             />
