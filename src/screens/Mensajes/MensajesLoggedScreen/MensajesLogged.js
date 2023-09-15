@@ -12,7 +12,8 @@ import { listChat } from '../../../components/Mensajes';
 export function MensajesLogged() {
   return (
     <View style={styles.container}>
-      <listChat/>
+      {/* <listChat/>*/}
+      <Text>Hola</Text>
     </View>
   );
 }
