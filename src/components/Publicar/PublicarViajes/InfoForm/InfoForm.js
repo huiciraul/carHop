@@ -196,7 +196,7 @@ export function InfoForm(props) {
           {showDatePicker && (
             <DateTimePicker
               value={selectedDate || fechaHoy}
-              mode={Platform.OS === "ios" ? "date" : "calendar"} // Modo diferente para iOS y Android
+              mode="date" //Default para iOS y Android
               display={Platform.OS === "ios" ? "spinner" : "default"} // Configuración de visualización diferente
               minimumDate={fechaHoy}
               onChange={onChangeDate}
@@ -220,15 +220,13 @@ export function InfoForm(props) {
 
           <TouchableOpacity onPress={showTimeSelector} style={styles.text}>
             <Text style={styles.textPicker}>
-              {selectedTime
-                ? formatTime(selectedTime)
-                : "Selecciona una hora de salida"}
+              {selectedTime ? formatTime(selectedTime) : formatTime(fechaHoy)}
             </Text>
           </TouchableOpacity>
           {showTimePicker && (
             <DateTimePicker
-              value={selectedTime || new Date()}
-              mode={Platform.OS === "ios" ? "time" : "clock"} // Modo diferente para iOS y Android
+              value={selectedTime || formatTime(fechaHoy)}
+              mode="time" // Modo diferente para iOS y Android
               display={Platform.OS === "ios" ? "spinner" : "default"} // Configuración de visualización diferente
               onChange={onChangeTime}
             />
