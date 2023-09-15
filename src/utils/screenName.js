@@ -13,6 +13,7 @@ const buscarStack = {
 const mensajesStack = {
     tab: "mensajesTab",
     mensajes:"Mensajes",
+    chat:"Chat",
 };
 
 const accountsStack = {
@@ -34,5 +35,4 @@ export const screen = {
     account: accountsStack,
     publicar: publicarStack,
     buscarviajes: buscarStack,
-
 };
