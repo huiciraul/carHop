@@ -19,10 +19,10 @@ export function InfoForm(props) {
   const [currentField, setCurrentField] = useState("Origen");
   const fechaHoy = new Date();
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(fechaHoy);
   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(fechaHoy);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
   const formatDate = (date) => {
