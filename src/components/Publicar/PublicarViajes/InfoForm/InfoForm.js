@@ -117,7 +117,7 @@ export function InfoForm(props) {
     >
       {currentField === "Origen" && (
         <View>
-          <Text style={styles.text}>A donde viajamos?</Text>
+          <Text style={styles.text}>¿Desde dónde sales?</Text>
           <GooglePlacesAutocomplete
             placeholder="Origen"
             // styles={{
@@ -155,7 +155,7 @@ export function InfoForm(props) {
       )}
       {currentField === "Destino" && (
         <View>
-          <Text style={styles.text}>¿Dónde vas a ir?</Text>
+          <Text style={styles.text}>¿A dónde vas?</Text>
           <GooglePlacesAutocomplete
             placeholder="Destino"
             // styles={{
@@ -276,7 +276,7 @@ export function InfoForm(props) {
           <Text style={styles.text}>Define el precio para cada viajero</Text>
 
           <Input
-            placeholder="Precio por persona"
+            placeholder="Tarifa por persona"
             inputContainerStyle={styles.input}
             keyboardType="numeric" // Teclado numérico
             onChangeText={(numeric) => formik.setFieldValue("Precio", numeric)}
