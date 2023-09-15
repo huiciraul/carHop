@@ -47,7 +47,6 @@ export function InfoForm(props) {
   };
 
   const showTimeSelector = (date) => {
-    console.log(date);
     setShowDatePicker(false);
     setShowTimePicker(true);
   };
@@ -65,7 +64,7 @@ export function InfoForm(props) {
     setShowTimePicker(false);
     if (selectedTime) {
       setSelectedTime(selectedTime);
-      formik.setFieldValue("HorarioDeSalida", formatDate(selectedTime));
+      formik.setFieldValue("HorarioDeSalida", formatTime(selectedTime));
     }
   };
   //Para el Picker
