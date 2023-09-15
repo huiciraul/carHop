@@ -70,11 +70,11 @@ export function InfoForm(props) {
   };
   //Para el Picker
   const [passengerCount, setPassengerCount] = useState(1);
-  useEffect(() => {
-    if (initialValues) {
-      formik.setValues(initialValues);
-    }
-  }, [initialValues, formik]);
+  // useEffect(() => {
+  //   if (initialValues) {
+  //     formik.setValues(initialValues);
+  //   }
+  // }, [initialValues, formik]);
 
   const goToNextField = () => {
     let nextField = "";
