@@ -1,12 +1,22 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { styles } from './Mensajes.styles';
+import React, { useState, useEffect } from 'react';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { UserGuestScreen } from '../Perfil/UserGuestScreen/UserGuestScreen';
+import { MensajesLogged } from './MensajesLoggedScreen';
+import { LoadingModal } from '../../components';
+
 
 export function Mensajes() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Tus Mensajes</Text>
+  const [hasLogged, setHasLogged] = useState(null)
 
-    </View>
-  )
+  useEffect(() =>{
+   const auth = getAuth();
+  onAuthStateChanged(auth, (user)=>{
+     setHasLogged(user ? true : false);
+   });
+  }, []);
+
+  if (hasLogged === null) {
+    return <LoadingModal show text="Cargando"/>;
+  }
+return hasLogged ? <MensajesLogged/> : <UserGuestScreen/>
 }
